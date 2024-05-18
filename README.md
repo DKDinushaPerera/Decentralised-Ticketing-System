@@ -103,15 +103,4 @@ npm start
 ## Contributing
 
 I welcome contributions from the community! 
-
-## Contact
-
-For any inquiries or feedback, please reach out to us:
-
-Email: saishmirajkar0@gmail.com
-Discord: https://discord.com/users/saish7147
-Twitter: https://twitter.com/saishmirajkar1
-GitHub: https://github.com/saishmirajkar
-
-Thank you for using our Decentralized Event Ticketing Application! Enjoy secure and seamless event booking with blockchain technology. Happy ticketing! 🎟️🚀
-"# Decentralised-ticketing-system" 
+ 
