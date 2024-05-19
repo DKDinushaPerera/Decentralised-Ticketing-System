@@ -1,32 +1,26 @@
 import React from 'react';
-import "./Navbar.css";
+import './Navbar.css';
+import logo from './logo.png'; // Adjust the path as necessary
 
 const Navbar = () => {
   return (
-    <div class = "big">
-       <nav class="menu-container">
-      
-  
-  <input type="checkbox" aria-label="Toggle menu" />
-  <span></span>
-  <span></span>
-  <span></span>
+    <div className="big">
+      <nav className="menu-container">
+        <input type="checkbox" aria-label="Toggle menu" />
+        <span></span>
+        <span></span>
+        <span></span>
 
- 
-  <a href="#" class="menu-logo">
-    <img src="" alt="My Awesome Website"/>
-  </a>
-  <p class ="title">
-        Decentralized ticking system
-    </p>
+        <a href="/" className="menu-logo">
+          <img src={logo} alt="My Awesome Website"/>
+        </a>
 
-
-  
-</nav>
-
+        <p className="title">
+          Web3 Ticketing
+        </p>
+      </nav>
     </div>
-
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

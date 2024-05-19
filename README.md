@@ -1,3 +1,4 @@
+# Web3Ticking System
 # Decentralized Event Ticketing Application
 
 
@@ -10,8 +11,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [How to Use](#how-to-use)
-- [Contributing](#contributing)
-- [Contact](#contact)
+
 
 ## Introduction
 
@@ -100,7 +100,4 @@ npm start
 5. Book tickets for your desired event by following the on-screen instructions.
 6. Receive a confirmation email with a unique redeem ID for accessing the event.
 
-## Contributing
-
-I welcome contributions from the community! 
  
