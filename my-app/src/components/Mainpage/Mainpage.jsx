@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Mainpage.css';
-import axios from "axios"; 
+import axios from "axios";
 import Popup from 'reactjs-popup';
 import idGenerator from '../../contracts/idGenerator.json';
-import Web3 from 'web3'; 
-import emailjs from 'emailjs-com'; 
+import Web3 from 'web3';
+import emailjs from 'emailjs-com';
 
 const Mainpage = () => {
   const [myData, setMyData] = useState([]);
@@ -13,8 +13,8 @@ const Mainpage = () => {
   const [value2, setValue2] = useState("");
   const [index, setIndex] = useState(null);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const [idd, setId] = useState(null); 
-  const [update, setUpdate] = useState(null); 
+  const [idd, setId] = useState(null);
+  const [update, setUpdate] = useState(null);
   const [state, setState] = useState({ web3: null, contract: null, accounts: [] });
 
   useEffect(() => {
@@ -24,9 +24,9 @@ const Mainpage = () => {
     async function initializeWeb3() {
       try {
         const web3 = new Web3(provider);
-        const network_id = await web3.eth.net.getId();
-        const deployedNetworks = idGenerator.networks[network_id];
-        const contract = new web3.eth.Contract(idGenerator.abi, deployedNetworks.address);
+        const networkId = await web3.eth.net.getId();
+        const deployedNetwork = idGenerator.networks[networkId];
+        const contract = new web3.eth.Contract(idGenerator.abi, deployedNetwork.address);
         const accounts = await web3.eth.getAccounts();
         
         console.log('Web3:', web3);
@@ -40,14 +40,14 @@ const Mainpage = () => {
     }
   }, []);
 
-  const handleInputChange = (e) => { 
+  const handleInputChange = (e) => {
     if (e.target.id === 'textInput1') {
       console.log("Input value:", e.target.value);
       setValue2(e.target.value);
     }
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     if (idd && value2) {
       const pass = { id: idd, email: value2 };
       console.log('pass:', pass);
@@ -62,11 +62,11 @@ const Mainpage = () => {
     }
   }, [idd, value2]);
 
-  useEffect(() => { 
+  useEffect(() => {
     console.log('Variable 2:', value2);
   }, [value2]);
 
-  useEffect(() => { 
+  useEffect(() => {
     console.log('Index:', selectedItemIndex);
   }, [selectedItemIndex]);
 
@@ -91,9 +91,9 @@ const Mainpage = () => {
   const images = imageSrc.map((image, index) => ({ url: image, index }));
 
   const getInputValue = (index) => {
-    setIndex(index); // Store the index in the state
+    setIndex(index);
     console.log('Index:', index);
-    _setID(index); // Log the index to the console
+    _setID(index);
   };
 
   async function _setID(number) {
@@ -103,7 +103,7 @@ const Mainpage = () => {
     try {
       await contract.methods
         .setId(number)
-        .send({ from: accounts[0] }); // Ensure we're using a valid account
+        .send({ from: accounts[0] });
 
       setUpdate(number);
       console.log(`ID ${number} has been set.`);
@@ -113,11 +113,11 @@ const Mainpage = () => {
   }
 
   useEffect(() => {
-    const { contract } = state; 
+    const { contract } = state;
 
     async function result() {
       if (!contract) return;
-      
+
       try {
         const data = await contract.methods.id().call();
         console.log('Contract data:', data);
@@ -149,12 +149,12 @@ const Mainpage = () => {
                       <div className='modal'>
                         <div className='content'>
                           <img className='imageedit' src={url} alt="Random" width="250" height="250" />
-                          <p className='textEditor'>GREAT PICK.</p> 
-                          <p className='textEditor'><b>{title.slice(0, 15).toUpperCase()}</b> IS ONE OF THE BEST EVENTS WE GOT HERE</p>
+                          <p className='textEditor'>GREAT CHOICE!.</p>
+                          <p className='textEditor'><b>{title.slice(0, 15).toUpperCase()}</b> ITS ONE OF OUR BEST EVENTS.</p>
                           <input id="textInput1" type="text" className='gmailInput' placeholder='ENTER THE GMAIL' onChange={handleInputChange} required></input>
                         </div>
                         <div>
-                          <Popup 
+                          <Popup
                             trigger={<button onClick={() => getInputValue(index)} id="ConfirmButton" className='button-54'>CONFIRM</button>}
                             modal nested
                             onOpen={() => getInputValue(index)}
@@ -162,8 +162,8 @@ const Mainpage = () => {
                             {close => (
                               <div id="modal2" className='modal'>
                                 <div className='content'>
-                                  <p className='text2'>OOOLA LA! YOUR EVENT TICKET IS CONFIRMED.</p>
-                                  <p className='text2'>THE TICKET WILL BE MAILED TO YOUR GMAIL.</p>
+                                  <p className='text2'>YOUR TICKET HAS BEEN BOOKED.</p>
+                                  <p className='text2'>THE TICKET DETAILS WIL BE SEND TO YOUR E-MAIL.</p>
                                 </div>
                                 <div>
                                   <button id="button2" className='button-54' onClick={close}>THANK YOU</button>
