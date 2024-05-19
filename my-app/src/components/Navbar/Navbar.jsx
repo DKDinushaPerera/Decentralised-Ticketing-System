@@ -14,7 +14,7 @@ const Navbar = () => {
 
  
   <a href="#" class="menu-logo">
-    <img src="https://wweb.dev/resources/navigation-generator/logo-placeholder.png" alt="My Awesome Website"/>
+    <img src="" alt="My Awesome Website"/>
   </a>
   <p class ="title">
         Decentralized ticking system

@@ -10,21 +10,17 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 10px;
     color: #cdcdcd;
-    padding: 20px;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
     box-sizing: border-box;
     height: 2cm;
     text-align: center;
-    padding-left: 3cm;
-    padding-right: 3cm;
   }
   
 
