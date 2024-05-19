@@ -17,7 +17,7 @@ body {
   -webkit-user-select: none;
   user-select: none;
   box-sizing: border-box;
-  height: 2cm;
+  height: 3cm;
   text-align: center;
 }
 
@@ -181,6 +181,7 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
+  padding-left: 3cm ;
   font-family: "VT323";
   font-weight: bold;
   font-size: xx-large;
